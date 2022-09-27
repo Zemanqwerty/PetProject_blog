@@ -24,7 +24,7 @@ public class ArticleController {
     @GetMapping("/get_all")
     public ResponseEntity getAll() {
         try{
-            return ResponseEntity.ok().body(articleRepository.findAll());
+            return ResponseEntity.ok().body(articleService.getAll());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e);
         }

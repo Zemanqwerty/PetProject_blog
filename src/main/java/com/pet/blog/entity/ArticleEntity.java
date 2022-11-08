@@ -1,24 +1,21 @@
 package com.pet.blog.entity;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class ArticleEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private String text;
-    private String timestamp = new SimpleDateFormat("yyyyMMdd_HHmm").format(Calendar.getInstance().getTime());
+@Table(name = "articles")
+public class ArticleEntity extends BaseEntity {
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "article_text")
+    private String text;
 
     public void setTitle(String title) {
         this.title = title;
@@ -34,9 +31,5 @@ public class ArticleEntity {
 
     public String getText() {
         return text;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
     }
 }

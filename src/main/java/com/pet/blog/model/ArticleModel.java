@@ -1,19 +1,21 @@
 package com.pet.blog.model;
 
+import java.util.Date;
+
 import com.pet.blog.entity.ArticleEntity;
 
 public class ArticleModel {
     private Long id;
     private String title;
     private String text;
-    private String timestamp;
+    private Date createdAt;
 
     public static ArticleModel toModel(ArticleEntity entity) {
         ArticleModel model = new ArticleModel();
         model.setId(entity.getId());
         model.setTitle(entity.getTitle());
         model.setText(entity.getText());
-        model.setTimestamp(entity.getTimestamp());
+        model.setCreatedDate(entity.getCreatedDate());
         return model;
     }
 
@@ -23,8 +25,8 @@ public class ArticleModel {
         this.id = id;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setCreatedDate(Date date) {
+        this.createdAt = date;
     }
 
     public void setTitle(String title) {
